@@ -1,5 +1,5 @@
 # Entorno de desarrollo sobre OpenSUSE 15.0
-El script install.sh contiene una secuencia automatizada de instalación de diversas herramientas de desarrollo utilizadas en el día a día. Está pensado para utlizarse cuando se realiza una instalación limpia de OpenSUSE sobre un ordenador. El software que se instala con la ejecución de este script en una terminal es el siguiente:
+El script install.sh contiene una secuencia automatizada de instalación de diversas herramientas de desarrollo utilizadas en el día a día por un programador de sistemas web. Está pensado para utlizarse cuando se realiza una instalación limpia de OpenSUSE sobre un ordenador. El software que se instala con la ejecución de este script en una terminal es el siguiente:
 
 ### Herramientas para la terminal:
 
