@@ -155,3 +155,7 @@ zypper -n in vlc
 #Install Meaven   Tor
 #Install Kubectl  Magento  
 #Install GCP SDK  Opera    Wordpress
+
+#Add public port to firewall
+#https://doc.opensuse.org/documentation/leap/security/html/book.security/cha.security.firewall.html
+#firewall-cmd --add-port=8000/tcp
