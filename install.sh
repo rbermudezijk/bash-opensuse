@@ -62,7 +62,8 @@ cd ~/.ssh
 
 #---- JAVA ----
 # To manage multiple versions of Java use alternatives command
-# I recommend the next tutorial: https://www.thegeekdiary.com/how-to-work-with-multiple-java-versions-under-linux/ 
+# I recommend the next tutorial: https://www.thegeekdiary.com/how-to-work-with-multiple-java-versions-under-linux/
+# sudo update-alternatives  --config java
 zypper -n install java-1_8_0-openjdk-headless 
 zypper -n install java-1_8_0-openjdk
 
