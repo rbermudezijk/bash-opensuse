@@ -67,6 +67,16 @@ cd ~/.ssh
 zypper -n install java-1_8_0-openjdk-headless 
 zypper -n install java-1_8_0-openjdk
 
+#--- MAVEN ----
+# Download maven from https://maven.apache.org/download.cgi
+# Maven installation tutorial https://medium.com/@sarathkumarsivan/install-apache-maven-on-suse-linux-enterprise-server-4e411086f52e
+wget http://us.mirrors.quenda.co/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz 
+tar -xvzf apache-maven-3.5.4-bin.tar.gz -C /opt
+sudo ln -s /opt/apache-maven-3.5.4 /usr/share/maven
+export M2_HOME=/usr/share/maven 
+export PATH=${M2_HOME}/bin:${PATH}
+source ~/.bashrc
+#Check maven version mvn -v
 
 #---- PYTHON 3.7 ----
 #Sources: https://unix.stackexchange.com/questions/282429/sles12-how-to-install-zlib-package
@@ -150,13 +160,37 @@ zypper -n in vlc
 #Source: https://developer.android.com/studio/install#64bit-libs
 #Androd MUST be installed from graphic user interface
 
+#---- ECLIPSE ----
+#Source: https://www.eclipse.org/downloads/
+#Eclipse MUST be installed from graphic user interface
 
-#Install Eclipse  Zoom     PHP Composer
-#Install Tomcat   Blender  Skype      
-#Install Meaven   Tor
-#Install Kubectl  Magento  
-#Install GCP SDK  Opera    Wordpress
+#DELETE Eclipse
+#To delete eclipse from your system you must run the 
+#next commands:
+# rm -r ~/.eclipse
+# rm -r ~/eclipse
 
+#---- SKYPE ----
+#This software must be install from graphic user interface
+
+
+#---- TOMCAT ----
+
+
+#---- FIREWALL ----
 #Add public port to firewall
 #https://doc.opensuse.org/documentation/leap/security/html/book.security/cha.security.firewall.html
+
+#Temporal
 #firewall-cmd --add-port=8000/tcp
+
+#Permanent
+#firewall-cmd --zone=public --permanent --add-port=8080/tcp
+
+#Reload firewall configuration.
+#firewall-cmd --reload
+
+#---- TO INSTALL ----
+#Install PHP Composer Magento Wordpress
+#Install Blender      Tor  Kubectl      
+#Install GCP SDK      Opera
