@@ -4,11 +4,14 @@
 
 #---- ADOBE FLASH PLUGIN ----
 #Source: https://en.opensuse.org/Adobe_Flash_Player
-zypper ar --check --refresh http://linuxdownload.adobe.com/linux/x86_64/ adobe
-zypper se -s -r adobe
-zypper in adobe-release-x86_64
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
-zypper -n install flash-plugin
+
+# This code section was commented because it is not work right now.
+
+# zypper ar --check --refresh http://linuxdownload.adobe.com/linux/x86_64/ adobe
+# zypper se -s -r adobe
+# zypper in adobe-release-x86_64
+# rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
+# zypper -n install flash-plugin
 
 
 #---- HTOP ----
@@ -17,8 +20,8 @@ zypper -n install htop
 
 #---- MONGO DB ----
 #Source: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-suse/
-rpm --import https://www.ngo.org/static/pgp/server-4.0.asc
-zypper addrepo --gpgcheck "https://repo.mongodb.org/zypper/suse/12/mongodb-org/4.0/x86_64/" mongodb
+rpm --import https://www.mongodb.org/static/pgp/server-4.4.asc
+zypper addrepo --gpgcheck "https://repo.mongodb.org/zypper/suse/12/mongodb-org/4.4/x86_64/" mongodb
 # For earlier versions use the follow repo
 # zypper addrepo --no-gpgcheck https://repo.mongodb.org/zypper/suse/12/mongodb-org/3.4/x86_64/ mongodb
 zypper -n install mongodb-org
@@ -40,25 +43,26 @@ systemctl restart apache2
 
 #---- MARIADB, MYSQL WORKBENCH ----
 #Source: https://mariadb.com/kb/en/library/installing-mariadb-with-zypper/
-zypper addrepo --gpgcheck --refresh https://yum.mariadb.org/10.3/sles/15/x86_64 mariadb
-zypper --gpg-auto-import-keys refresh
-zypper -n install MariaDB-server galera-4 MariaDB-client MariaDB-shared MariaDB-backup MariaDB-common
-zypper -n install mysql-workbench
+#Checksum validation fail, is required install without "silent mode"
+# zypper addrepo --gpgcheck --refresh https://yum.mariadb.org/10.5/sles/15/x86_64 mariadb
+# zypper -n --gpg-auto-import-keys refresh
+# zypper -n install MariaDB-server galera-4 MariaDB-client MariaDB-shared MariaDB-backup MariaDB-common
+# zypper -n install mysql-workbench
 
 
 #---- DOCKER, DOCKER MACHINE ----
 #Source to docker-machine command: https://docs.docker.com/machine/install-machine/
-zypper -n install docker
-base=https://github.com/docker/machine/releases/download/v0.16.0 &&
-  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
-  install /tmp/docker-machine /usr/local/bin/docker-machine
 
+#Docker
+zypper -n install docker
+
+#Docker machine
+base=https://github.com/docker/machine/releases/download/v0.16.0 && \
+  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && \
+  install /tmp/docker-machine /usr/local/bin/docker-machine
 
 #---- GIT ----
 zypper -n install git
-#add NDS Cognitive Labs account
-cd ~/.ssh
-
 
 #---- JAVA ----
 # To manage multiple versions of Java use alternatives command
@@ -68,13 +72,14 @@ zypper -n install java-1_8_0-openjdk-headless
 zypper -n install java-1_8_0-openjdk
 
 #--- MAVEN ----
+# Run without sudo command
 # Download maven from https://maven.apache.org/download.cgi
 # Maven installation tutorial https://medium.com/@sarathkumarsivan/install-apache-maven-on-suse-linux-enterprise-server-4e411086f52e
-wget http://us.mirrors.quenda.co/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz 
-tar -xvzf apache-maven-3.5.4-bin.tar.gz -C /opt
-sudo ln -s /opt/apache-maven-3.5.4 /usr/share/maven
-export M2_HOME=/usr/share/maven 
-export PATH=${M2_HOME}/bin:${PATH}
+wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz 
+tar -xvzf apache-maven-3.6.3-bin.tar.gz -C /opt
+sudo ln -s /opt/apache-maven-3.6.3 /usr/share/maven
+echo "export M2_HOME=/usr/share/maven" >> ~/.bashrc
+echo "export PATH=${M2_HOME}/bin:${PATH}" >> ~/.bashrc
 source ~/.bashrc
 #Check maven version mvn -v
 
