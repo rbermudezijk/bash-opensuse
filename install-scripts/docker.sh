@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #---- DOCKER, DOCKER MACHINE ----
 #Source to docker-machine command: https://docs.docker.com/machine/install-machine/
 
