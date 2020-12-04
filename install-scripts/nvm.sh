@@ -6,9 +6,10 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. ~/.bashrc
   #NODE: Install latest version
   #Notes: Some versions (latest or beta versions) work with fails. Install the version that you needs
-#  nvm install 14.15.1
+nvm install 14.15.1
   #ANGULAR CLI
 #  npm install -g angular/cli
   #REACT NATIVE/REACT
