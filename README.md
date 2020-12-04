@@ -36,5 +36,12 @@ El script install.sh contiene una secuencia automatizada de instalación de dive
  - Opera
  - PHP Composer
 
+Utilicese la siguiente instrucción para hacer todos los scripts de la carpeta install-scripts ejecutables
+
+```bash
+cd install-scripts
+for f in *sh; do chmod u+x $f; done
+```
+
 ## Documentación
  - [Guia oficial de OpenSUSE](https://doc.opensuse.org/documentation/leap/reference/html/book.opensuse.reference/book.opensuse.reference.html) 

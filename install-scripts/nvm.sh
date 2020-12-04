@@ -10,17 +10,18 @@ export NVM_DIR="$HOME/.nvm"
   #NODE: Install latest version
   #Notes: Some versions (latest or beta versions) work with fails. Install the version that you needs
 nvm install 14.15.1
+. ~/.bashrc
   #ANGULAR CLI
-#  npm install -g angular/cli
+  npm install -g angular/cli
   #REACT NATIVE/REACT
-#  npm install -g create-react-app
-#  npm install -g create-native-app
-#  npm install -g react-native-cli
+  npm install -g create-react-app
+  npm install -g create-native-app
+  npm install -g react-native-cli
   #Vue CLI
-#  npm install -g @vue/cli
+  npm install -g @vue/cli
   #FIREBASE
-#  npm install -g firebase-tools
+  npm install -g firebase-tools
   #LIVE-SERVER
-#  npm install -g live-server
+  npm install -g live-server
 
 
